@@ -20,6 +20,9 @@ dbeaver
 
 
 https://zh.osdn.net/projects/sfnet_id2d/downloads/jdbc%20drivers/jconn4.jar/
+https://dbeaver.io/files/drivers/sybase/jconnect/jconn4.jar
+
+C:\Users\zuiwo\AppData\Roaming\DBeaverData\drivers
 
 https://github.com/a998151/SpringBoot-MyBatis-SyBase
 
@@ -28,4 +31,32 @@ Can't open editor connection
 
 原因：
  JZ006: 捕获到 IO 例外:java.io.IOException: JZ0TS: 试图发送 DBeaver 21.3.2 - SQLEditor <Script-2.sql> 时发生截断错误。
+ 
+ https://dbeaver.io/files/drivers/sybase/jconnect/jconn4.jar
+ 
+```
+
+Sybase 16.2
+Based on nguoianphu/docker-sybase Needs about 30 seconds after start for correct initialization
+
+Environment Variables
+Guest user
+Environment variable	Default value
+SYBASE_USER	tester
+SYBASE_PASSWORD	guest1234
+SYBASE_DB	testdb
+Admin user
+Environment variable	Default value
+SYBASE_USER	sa
+SYBASE_PASSWORD	myPassword
+Create container
+
+docker run -d -t -p 5000:5000 datagrip/sybase162
+
+```sql
+CREATE TABLE testdb.dbo.t_user (
+	col1 int not null,
+    col2 int null
+);
+
 ```
