@@ -5,22 +5,14 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.example.entity.UserEntity;
 
 import java.util.Arrays;
+import java.util.List;
 
-public class UserService {
+public interface UserService {
 
-    public void orderBy1() {
-        LambdaQueryWrapper<UserEntity> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.orderByDesc(UserEntity::getId);
-    }
+    List<UserEntity> orderBy1();
 
-    public void orderBy2() {
-        LambdaQueryWrapper<UserEntity> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.orderByDesc(Arrays.asList(UserEntity::getUsername, UserEntity::getPassword));
-    }
+    List<UserEntity> orderBy2();
 
-    public void orderBy3() {
-        QueryWrapper<UserEntity> qw = new QueryWrapper<>();
-        qw.orderByDesc(Arrays.asList("username", "password"));
-    }
+    List<UserEntity> orderBy3();
 
 }

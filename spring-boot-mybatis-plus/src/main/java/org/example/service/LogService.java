@@ -3,14 +3,10 @@ package org.example.service;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.example.entity.LogEntity;
 
-public class LogService {
+import java.util.List;
 
-    public void add() {
-
-    }
-
-    public void search() {
-        LambdaQueryWrapper<LogEntity> queryWrapper = new LambdaQueryWrapper<>();
-    }
+public interface LogService {
+    void add();
+    List<LogEntity> search();
 
 }
