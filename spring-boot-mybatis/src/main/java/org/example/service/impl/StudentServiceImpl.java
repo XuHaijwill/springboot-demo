@@ -3,6 +3,7 @@ package org.example.service.impl;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.domain.entity.Student;
+import org.example.mapper.StudentAnnotationMapper;
 import org.example.mapper.StudentMapper;
 import org.example.service.StudentService;
 import org.springframework.stereotype.Service;
@@ -23,9 +24,23 @@ public class StudentServiceImpl implements StudentService {
 
     private StudentMapper studentMapper;
 
+    private StudentAnnotationMapper studentAnnotationMapper;
+
     @Override
     public List<Student> selectAll() {
         log.info("select all...");
         return studentMapper.selectAll();
     }
+
+    @Override
+    public List<Student> selectAnnotationAll() {
+        return studentAnnotationMapper.selectAll();
+    }
+
+    @Override
+    public int insertStudent(Student student) {
+        return studentAnnotationMapper.insert(student);
+    }
+
+
 }

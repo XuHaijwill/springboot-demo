@@ -14,4 +14,8 @@ import java.util.List;
 public interface StudentService {
 
     List<Student> selectAll();
+
+    List<Student> selectAnnotationAll();
+
+    int insertStudent(Student student);
 }
