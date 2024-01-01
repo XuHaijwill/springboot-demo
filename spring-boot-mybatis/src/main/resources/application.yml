@@ -18,8 +18,11 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
 
+logging:
+  config: classpath:logback-spring.xml
+
 mybatis:
   type-aliases-package: org.example.mapper
   mapper-locations: classpath:mapper/**/*Mapper.xml
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台输出日志
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台输出日志

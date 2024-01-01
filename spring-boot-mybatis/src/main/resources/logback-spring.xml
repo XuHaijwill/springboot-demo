@@ -3,9 +3,9 @@
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <consolePlugin/>
     <!--自定义参数-->
-    <property name="APP_NAME" value="SpringbootLogApplication"/>
+    <property name="APP_NAME" value="spring-boot-mybatis"/>
     <!-- 这里配置log路径 -->
-    <property name="LOG_DIR" value="${user.home}/logs/test/${APP_NAME}"/>
+    <property name="LOG_DIR" value="D:/logs/test/${APP_NAME}"/>
     <contextName>${APP_NAME}</contextName>
     <!--开启logback的jmx支持 -->
     <jmxConfigurator></jmxConfigurator>
@@ -33,6 +33,9 @@
             <charset class="java.nio.charset.Charset">UTF-8</charset>
         </encoder>
     </appender>
+
+    <logger name="org.example.mapper" level="DEBUG"/>
+
     <!--使appender节点生效-->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
