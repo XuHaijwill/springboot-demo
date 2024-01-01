@@ -1,7 +1,6 @@
 package org.example.base;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.fengwenyi.apistarter.entity.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -15,13 +14,13 @@ public class BaseBizEntity extends BaseEntity {
 
     /**
      * 启用状态
-     * @see com.fengwenyi.apistarter.constant.EnabledState
+     * @see
      */
     private Boolean enabledState;
 
     /**
      * 删除状态
-     * @see com.fengwenyi.apistarter.constant.DeletedState
+     * @see
      */
     @TableLogic
     private Boolean deletedState;

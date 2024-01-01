@@ -9,10 +9,6 @@ import java.util.List;
 
 public interface UserService {
 
-    List<UserEntity> orderBy1();
-
-    List<UserEntity> orderBy2();
-
-    List<UserEntity> orderBy3();
+    List<UserEntity> queryAll();
 
 }
