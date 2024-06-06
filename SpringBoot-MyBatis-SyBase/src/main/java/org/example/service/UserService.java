@@ -8,6 +8,6 @@ package org.example.service;
  * @Version 1.0
  **/
 public interface UserService {
-    String getUserNo(String userNo);
+    Long selectById(String userNo);
 }
 

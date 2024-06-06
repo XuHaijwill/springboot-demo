@@ -1,19 +1,13 @@
 package org.example.mapper;
 
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.stereotype.Repository;
+import org.apache.ibatis.annotations.Mapper;
+import org.example.model.User;
 
-/**
- * @ClassName UserMapper
- * @Description //TODO
- * @Author XuHaijwill
- * @Date 2024/6/6 19:23
- * @Version 1.0
- **/
-@Repository
+@Mapper
 public interface UserMapper {
+    int insert(User record);
 
-    String getUserNo(@Param("cardNo") String cardNo);
+    int insertSelective(User record);
+
+    Long selectById(Long id);
 }
-

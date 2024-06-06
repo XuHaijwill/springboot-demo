@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public String getUserNo(String userNo) {
+    public Long selectById(String userNo) {
 
-        return userMapper.getUserNo("0101110000057398");
+        return userMapper.selectById(1L);
     }
 }

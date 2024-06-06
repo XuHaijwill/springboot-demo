@@ -19,8 +19,9 @@ public class HelloController {
     UserService userServiceImpl;
 
     @RequestMapping("hello")
-    public String hello(){
-        return userServiceImpl.getUserNo("3333");
+    public String hello() {
+        userServiceImpl.selectById("3333");
+        return "Hello";
     }
 
 
