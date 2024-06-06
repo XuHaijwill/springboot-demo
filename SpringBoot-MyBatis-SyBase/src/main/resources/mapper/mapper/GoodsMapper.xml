@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.example.mapper.GoodsMapper" >
-  <resultMap id="BaseResultMap" type="org.example.model.Goods" >
-    <result column="id" property="id" jdbcType="BIGINT" />
-    <result column="create_date_time" property="createDateTime" jdbcType="TIMESTAMP" />
-    <result column="create_user_id" property="createUserId" jdbcType="BIGINT" />
-    <result column="create_user_name" property="createUserName" jdbcType="VARCHAR" />
-    <result column="update_date_time" property="updateDateTime" jdbcType="TIMESTAMP" />
-    <result column="update_user_id" property="updateUserId" jdbcType="BIGINT" />
-    <result column="update_user_name" property="updateUserName" jdbcType="VARCHAR" />
-    <result column="enabled_state" property="enabledState" jdbcType="TINYINT" />
-    <result column="deleted_state" property="deletedState" jdbcType="TINYINT" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="price" property="price" jdbcType="DECIMAL" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Goods">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_date_time" jdbcType="TIMESTAMP" property="createDateTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="update_date_time" jdbcType="TIMESTAMP" property="updateDateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="enabled_state" jdbcType="TINYINT" property="enabledState" />
+    <result column="deleted_state" jdbcType="TINYINT" property="deletedState" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
   </resultMap>
-  <insert id="insert" parameterType="org.example.model.Goods" >
+  <insert id="insert" parameterType="org.example.model.Goods">
     insert into t_goods (id, create_date_time, create_user_id, 
       create_user_name, update_date_time, update_user_id, 
       update_user_name, enabled_state, deleted_state, 
@@ -24,75 +24,171 @@
       #{updateUserName,jdbcType=VARCHAR}, #{enabledState,jdbcType=TINYINT}, #{deletedState,jdbcType=TINYINT}, 
       #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="org.example.model.Goods" >
+  <insert id="insertSelective" parameterType="org.example.model.Goods">
     insert into t_goods
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         id,
       </if>
-      <if test="createDateTime != null" >
+      <if test="createDateTime != null">
         create_date_time,
       </if>
-      <if test="createUserId != null" >
+      <if test="createUserId != null">
         create_user_id,
       </if>
-      <if test="createUserName != null" >
+      <if test="createUserName != null">
         create_user_name,
       </if>
-      <if test="updateDateTime != null" >
+      <if test="updateDateTime != null">
         update_date_time,
       </if>
-      <if test="updateUserId != null" >
+      <if test="updateUserId != null">
         update_user_id,
       </if>
-      <if test="updateUserName != null" >
+      <if test="updateUserName != null">
         update_user_name,
       </if>
-      <if test="enabledState != null" >
+      <if test="enabledState != null">
         enabled_state,
       </if>
-      <if test="deletedState != null" >
+      <if test="deletedState != null">
         deleted_state,
       </if>
-      <if test="name != null" >
+      <if test="name != null">
         name,
       </if>
-      <if test="price != null" >
+      <if test="price != null">
         price,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="createDateTime != null" >
+      <if test="createDateTime != null">
         #{createDateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="createUserId != null" >
+      <if test="createUserId != null">
         #{createUserId,jdbcType=BIGINT},
       </if>
-      <if test="createUserName != null" >
+      <if test="createUserName != null">
         #{createUserName,jdbcType=VARCHAR},
       </if>
-      <if test="updateDateTime != null" >
+      <if test="updateDateTime != null">
         #{updateDateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateUserId != null" >
+      <if test="updateUserId != null">
         #{updateUserId,jdbcType=BIGINT},
       </if>
-      <if test="updateUserName != null" >
+      <if test="updateUserName != null">
         #{updateUserName,jdbcType=VARCHAR},
       </if>
-      <if test="enabledState != null" >
+      <if test="enabledState != null">
         #{enabledState,jdbcType=TINYINT},
       </if>
-      <if test="deletedState != null" >
+      <if test="deletedState != null">
         #{deletedState,jdbcType=TINYINT},
       </if>
-      <if test="name != null" >
+      <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="price != null" >
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="org.example.model.Goods">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_date_time" jdbcType="TIMESTAMP" property="createDateTime" />
+    <result column="create_user_id" jdbcType="BIGINT" property="createUserId" />
+    <result column="create_user_name" jdbcType="VARCHAR" property="createUserName" />
+    <result column="update_date_time" jdbcType="TIMESTAMP" property="updateDateTime" />
+    <result column="update_user_id" jdbcType="BIGINT" property="updateUserId" />
+    <result column="update_user_name" jdbcType="VARCHAR" property="updateUserName" />
+    <result column="enabled_state" jdbcType="TINYINT" property="enabledState" />
+    <result column="deleted_state" jdbcType="TINYINT" property="deletedState" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+  </resultMap>
+  <insert id="insert" parameterType="org.example.model.Goods">
+    insert into t_goods (id, create_date_time, create_user_id, 
+      create_user_name, update_date_time, update_user_id, 
+      update_user_name, enabled_state, deleted_state, 
+      name, price)
+    values (#{id,jdbcType=BIGINT}, #{createDateTime,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=BIGINT}, 
+      #{createUserName,jdbcType=VARCHAR}, #{updateDateTime,jdbcType=TIMESTAMP}, #{updateUserId,jdbcType=BIGINT}, 
+      #{updateUserName,jdbcType=VARCHAR}, #{enabledState,jdbcType=TINYINT}, #{deletedState,jdbcType=TINYINT}, 
+      #{name,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.model.Goods">
+    insert into t_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createDateTime != null">
+        create_date_time,
+      </if>
+      <if test="createUserId != null">
+        create_user_id,
+      </if>
+      <if test="createUserName != null">
+        create_user_name,
+      </if>
+      <if test="updateDateTime != null">
+        update_date_time,
+      </if>
+      <if test="updateUserId != null">
+        update_user_id,
+      </if>
+      <if test="updateUserName != null">
+        update_user_name,
+      </if>
+      <if test="enabledState != null">
+        enabled_state,
+      </if>
+      <if test="deletedState != null">
+        deleted_state,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createDateTime != null">
+        #{createDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null">
+        #{createUserId,jdbcType=BIGINT},
+      </if>
+      <if test="createUserName != null">
+        #{createUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDateTime != null">
+        #{updateDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUserId != null">
+        #{updateUserId,jdbcType=BIGINT},
+      </if>
+      <if test="updateUserName != null">
+        #{updateUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabledState != null">
+        #{enabledState,jdbcType=TINYINT},
+      </if>
+      <if test="deletedState != null">
+        #{deletedState,jdbcType=TINYINT},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
         #{price,jdbcType=DECIMAL},
       </if>
     </trim>
