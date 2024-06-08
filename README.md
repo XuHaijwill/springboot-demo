@@ -2,6 +2,9 @@
 
 https://github.com/fengwenyi/spring-boot-demo/blob/main/pom.xml
 
+[Sybase](docs/Sybase.md)
+
+
 ```
 docker pull datagrip/sybase
 
@@ -9,9 +12,10 @@ docker pull datagrip/sybase
 docker save -o /opt/sybase.tar docker.io/datagrip/sybase:latest
 
 
-/opt/sybase/OCS-16_0/bin/isql -U sa -P myPassword -S MYSYBASE 
-
-
+source /opt/sybase/SYBASE.sh
+--/opt/sybase/OCS-16_0/bin/isql
+isql -Usa -S127.0.0.1:5000 -X
+myPassword
 ```
 
 ## The tool to connect Sybase
@@ -51,7 +55,7 @@ SYBASE_USER	sa
 SYBASE_PASSWORD	myPassword
 Create container
 
-docker run -d -t -p 5000:5000 datagrip/sybase162
+docker run -d -t -p 8000:5000 datagrip/sybase162
 
 ```sql
 CREATE TABLE testdb.dbo.t_user (
@@ -60,3 +64,4 @@ CREATE TABLE testdb.dbo.t_user (
 );
 
 ```
+
