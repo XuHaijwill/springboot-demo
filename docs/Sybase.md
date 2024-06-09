@@ -6,10 +6,13 @@
 > 
 > --/opt/sybase/OCS-16_0/bin/isql
 > 
-> isql -Usa -S127.0.0.1:5000 -X
+> isql -Usa -S127.0.0.1:5000 -X -PmyPassword
 > 
 > myPassword
 
+```
+Sybase数据库常用sql语言 https://www.cnblogs.com/lizm166/p/8109169.html
+```
 ## Sybase SQL
 ```sql
 查看所有数据库名称及大小
@@ -53,4 +56,26 @@ set statistics time {on | off}
     set showplan_all {on | off}
     set showplan_text { on | off }
     set statistics profile { on | off }                                                 
+```
+
+sybase 表插入新增数据自增主键 https://blog.51cto.com/u_16175476/10390147
+
+```
+创建一个主键约束：
+ALTER TABLE your_table_name
+ADD CONSTRAINT your_constraint_name
+PRIMARY KEY (column1, column2, ...);
+创建一个唯一约束：
+ALTER TABLE your_table_name
+ADD CONSTRAINT your_constraint_name
+UNIQUE (column1, column2, ...);
+创建一个非聚集索引：
+
+CREATE INDEX your_index_name
+ON your_table_name (column1, column2, ...);
+创建一个聚集索引：
+
+
+CREATE CLUSTERED INDEX your_index_name
+ON your_table_name (column1, column2, ...);
 ```

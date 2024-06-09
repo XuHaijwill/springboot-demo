@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.TestMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Test">
+    <id column="T_ID" jdbcType="NUMERIC" property="tId" />
+    <result column="T_BIGINT" jdbcType="BIGINT" property="tBigint" />
+    <result column="T_UNSIGNED_BIGINT" jdbcType="BIGINT" property="tUnsignedBigint" />
+    <result column="T_DECIMAL" jdbcType="DECIMAL" property="tDecimal" />
+    <result column="T_MONEY" jdbcType="DECIMAL" property="tMoney" />
+    <result column="T_SMALLMONEY" jdbcType="DECIMAL" property="tSmallmoney" />
+    <result column="T_CHAR" jdbcType="CHAR" property="tChar" />
+    <result column="T_UNICHAR" jdbcType="CHAR" property="tUnichar" />
+    <result column="T_UNIVARCHAR" jdbcType="VARCHAR" property="tUnivarchar" />
+    <result column="T_SMALLDATETIME" jdbcType="TIMESTAMP" property="tSmalldatetime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.example.model.Test">
+    <result column="T_TEXT" jdbcType="CLOB" property="tText" />
+    <result column="T_UNITEXT" jdbcType="CLOB" property="tUnitext" />
+    <result column="T_IMAGE" jdbcType="BLOB" property="tImage" />
+    <result column="T_BINARY" jdbcType="BINARY" property="tBinary" />
+    <result column="T_VARBINARY" jdbcType="VARBINARY" property="tVarbinary" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    T_ID, T_BIGINT, T_UNSIGNED_BIGINT, T_DECIMAL, T_MONEY, T_SMALLMONEY, T_CHAR, T_UNICHAR, 
+    T_UNIVARCHAR, T_SMALLDATETIME
+  </sql>
+  <sql id="Blob_Column_List">
+    T_TEXT, T_UNITEXT, T_IMAGE, T_BINARY, T_VARBINARY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_test
+    where T_ID = #{tId,jdbcType=NUMERIC}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from t_test
+    where T_ID = #{tId,jdbcType=NUMERIC}
+  </delete>
+  <insert id="insert" parameterType="org.example.model.Test">
+    insert into t_test (T_ID, T_BIGINT, T_UNSIGNED_BIGINT, 
+      T_DECIMAL, T_MONEY, T_SMALLMONEY, 
+      T_CHAR, T_UNICHAR, T_UNIVARCHAR, 
+      T_SMALLDATETIME, T_TEXT, T_UNITEXT, 
+      T_IMAGE, T_BINARY, T_VARBINARY
+      )
+    values (#{tId,jdbcType=NUMERIC}, #{tBigint,jdbcType=BIGINT}, #{tUnsignedBigint,jdbcType=BIGINT}, 
+      #{tDecimal,jdbcType=DECIMAL}, #{tMoney,jdbcType=DECIMAL}, #{tSmallmoney,jdbcType=DECIMAL}, 
+      #{tChar,jdbcType=CHAR}, #{tUnichar,jdbcType=CHAR}, #{tUnivarchar,jdbcType=VARCHAR}, 
+      #{tSmalldatetime,jdbcType=TIMESTAMP}, #{tText,jdbcType=CLOB}, #{tUnitext,jdbcType=CLOB}, 
+      #{tImage,jdbcType=BLOB}, #{tBinary,jdbcType=BINARY}, #{tVarbinary,jdbcType=VARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.model.Test">
+    insert into t_test
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        T_ID,
+      </if>
+      <if test="tBigint != null">
+        T_BIGINT,
+      </if>
+      <if test="tUnsignedBigint != null">
+        T_UNSIGNED_BIGINT,
+      </if>
+      <if test="tDecimal != null">
+        T_DECIMAL,
+      </if>
+      <if test="tMoney != null">
+        T_MONEY,
+      </if>
+      <if test="tSmallmoney != null">
+        T_SMALLMONEY,
+      </if>
+      <if test="tChar != null">
+        T_CHAR,
+      </if>
+      <if test="tUnichar != null">
+        T_UNICHAR,
+      </if>
+      <if test="tUnivarchar != null">
+        T_UNIVARCHAR,
+      </if>
+      <if test="tSmalldatetime != null">
+        T_SMALLDATETIME,
+      </if>
+      <if test="tText != null">
+        T_TEXT,
+      </if>
+      <if test="tUnitext != null">
+        T_UNITEXT,
+      </if>
+      <if test="tImage != null">
+        T_IMAGE,
+      </if>
+      <if test="tBinary != null">
+        T_BINARY,
+      </if>
+      <if test="tVarbinary != null">
+        T_VARBINARY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tId != null">
+        #{tId,jdbcType=NUMERIC},
+      </if>
+      <if test="tBigint != null">
+        #{tBigint,jdbcType=BIGINT},
+      </if>
+      <if test="tUnsignedBigint != null">
+        #{tUnsignedBigint,jdbcType=BIGINT},
+      </if>
+      <if test="tDecimal != null">
+        #{tDecimal,jdbcType=DECIMAL},
+      </if>
+      <if test="tMoney != null">
+        #{tMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tSmallmoney != null">
+        #{tSmallmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tChar != null">
+        #{tChar,jdbcType=CHAR},
+      </if>
+      <if test="tUnichar != null">
+        #{tUnichar,jdbcType=CHAR},
+      </if>
+      <if test="tUnivarchar != null">
+        #{tUnivarchar,jdbcType=VARCHAR},
+      </if>
+      <if test="tSmalldatetime != null">
+        #{tSmalldatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tText != null">
+        #{tText,jdbcType=CLOB},
+      </if>
+      <if test="tUnitext != null">
+        #{tUnitext,jdbcType=CLOB},
+      </if>
+      <if test="tImage != null">
+        #{tImage,jdbcType=BLOB},
+      </if>
+      <if test="tBinary != null">
+        #{tBinary,jdbcType=BINARY},
+      </if>
+      <if test="tVarbinary != null">
+        #{tVarbinary,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Test">
+    update t_test
+    <set>
+      <if test="tBigint != null">
+        T_BIGINT = #{tBigint,jdbcType=BIGINT},
+      </if>
+      <if test="tUnsignedBigint != null">
+        T_UNSIGNED_BIGINT = #{tUnsignedBigint,jdbcType=BIGINT},
+      </if>
+      <if test="tDecimal != null">
+        T_DECIMAL = #{tDecimal,jdbcType=DECIMAL},
+      </if>
+      <if test="tMoney != null">
+        T_MONEY = #{tMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tSmallmoney != null">
+        T_SMALLMONEY = #{tSmallmoney,jdbcType=DECIMAL},
+      </if>
+      <if test="tChar != null">
+        T_CHAR = #{tChar,jdbcType=CHAR},
+      </if>
+      <if test="tUnichar != null">
+        T_UNICHAR = #{tUnichar,jdbcType=CHAR},
+      </if>
+      <if test="tUnivarchar != null">
+        T_UNIVARCHAR = #{tUnivarchar,jdbcType=VARCHAR},
+      </if>
+      <if test="tSmalldatetime != null">
+        T_SMALLDATETIME = #{tSmalldatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tText != null">
+        T_TEXT = #{tText,jdbcType=CLOB},
+      </if>
+      <if test="tUnitext != null">
+        T_UNITEXT = #{tUnitext,jdbcType=CLOB},
+      </if>
+      <if test="tImage != null">
+        T_IMAGE = #{tImage,jdbcType=BLOB},
+      </if>
+      <if test="tBinary != null">
+        T_BINARY = #{tBinary,jdbcType=BINARY},
+      </if>
+      <if test="tVarbinary != null">
+        T_VARBINARY = #{tVarbinary,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where T_ID = #{tId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.example.model.Test">
+    update t_test
+    set T_BIGINT = #{tBigint,jdbcType=BIGINT},
+      T_UNSIGNED_BIGINT = #{tUnsignedBigint,jdbcType=BIGINT},
+      T_DECIMAL = #{tDecimal,jdbcType=DECIMAL},
+      T_MONEY = #{tMoney,jdbcType=DECIMAL},
+      T_SMALLMONEY = #{tSmallmoney,jdbcType=DECIMAL},
+      T_CHAR = #{tChar,jdbcType=CHAR},
+      T_UNICHAR = #{tUnichar,jdbcType=CHAR},
+      T_UNIVARCHAR = #{tUnivarchar,jdbcType=VARCHAR},
+      T_SMALLDATETIME = #{tSmalldatetime,jdbcType=TIMESTAMP},
+      T_TEXT = #{tText,jdbcType=CLOB},
+      T_UNITEXT = #{tUnitext,jdbcType=CLOB},
+      T_IMAGE = #{tImage,jdbcType=BLOB},
+      T_BINARY = #{tBinary,jdbcType=BINARY},
+      T_VARBINARY = #{tVarbinary,jdbcType=VARBINARY}
+    where T_ID = #{tId,jdbcType=NUMERIC}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Test">
+    update t_test
+    set T_BIGINT = #{tBigint,jdbcType=BIGINT},
+      T_UNSIGNED_BIGINT = #{tUnsignedBigint,jdbcType=BIGINT},
+      T_DECIMAL = #{tDecimal,jdbcType=DECIMAL},
+      T_MONEY = #{tMoney,jdbcType=DECIMAL},
+      T_SMALLMONEY = #{tSmallmoney,jdbcType=DECIMAL},
+      T_CHAR = #{tChar,jdbcType=CHAR},
+      T_UNICHAR = #{tUnichar,jdbcType=CHAR},
+      T_UNIVARCHAR = #{tUnivarchar,jdbcType=VARCHAR},
+      T_SMALLDATETIME = #{tSmalldatetime,jdbcType=TIMESTAMP}
+    where T_ID = #{tId,jdbcType=NUMERIC}
+  </update>
+</mapper>

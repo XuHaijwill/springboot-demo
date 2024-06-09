@@ -1,13 +1,17 @@
 package org.example.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.example.model.User;
 
-@Mapper
 public interface UserMapper {
+    int deleteByPrimaryKey(Long id);
+
     int insert(User record);
 
     int insertSelective(User record);
 
-    Long selectById(Long id);
+    User selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(User record);
+
+    int updateByPrimaryKey(User record);
 }
