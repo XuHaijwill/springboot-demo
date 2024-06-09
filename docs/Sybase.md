@@ -1,5 +1,7 @@
 # Sybase 学习指南
 
+
+
 > 进入docker sybase
 > 
 > source /opt/sybase/SYBASE.sh
@@ -79,3 +81,7 @@ ON your_table_name (column1, column2, ...);
 CREATE CLUSTERED INDEX your_index_name
 ON your_table_name (column1, column2, ...);
 ```
+
+# 分页插件
+https://github.com/pagehelper/Mybatis-PageHelper
+https://baomidou.com/plugins/pagination/

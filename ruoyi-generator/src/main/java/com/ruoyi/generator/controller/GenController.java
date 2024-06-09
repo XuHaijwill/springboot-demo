@@ -131,7 +131,7 @@ public class GenController extends BaseController
         try
         {
             SqlUtil.filterKeyword(sql);
-            List<SQLStatement> sqlStatements = SQLUtils.parseStatements(sql, DbType.mysql);
+            List<SQLStatement> sqlStatements = SQLUtils.parseStatements(sql, DbType.sybase);
             List<String> tableNames = new ArrayList<>();
             for (SQLStatement sqlStatement : sqlStatements)
             {
