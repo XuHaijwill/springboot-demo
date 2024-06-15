@@ -84,4 +84,48 @@ ON your_table_name (column1, column2, ...);
 
 # 分页插件
 https://github.com/pagehelper/Mybatis-PageHelper
+## Mybatis-plus分页插件 
 https://baomidou.com/plugins/pagination/
+```java
+
+mybatis plus 分页插件
+MyBatis-Plus 分页插件是一个非常实用的工具，它可以帮助开发者简化分页的实现过程。以下是如何配置和使用 MyBatis-Plus 分页插件的步骤：
+
+添加分页插件依赖：
+
+确保你的项目中已经添加了 MyBatis-Plus 的依赖。
+
+配置分页插件：
+
+在 MyBatis-Plus 的配置类中添加分页插件。
+
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class MybatisPlusConfig {
+    @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        return new PaginationInterceptor();
+    }
+}
+
+```
+
+```java
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.apache.ibatis.annotations.Select;
+ 
+public interface UserMapper extends BaseMapper<User> {
+    @Select("SELECT * FROM user")
+    IPage<User> selectPageVo(Page<?> page);
+}
+```
+
+```java
+Page<User> page = new Page<>(1, 5); // 第1页，每页5条数据
+IPage<User> userIPage = userMapper.selectPageVo(page);
+```

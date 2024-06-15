@@ -3,9 +3,12 @@ package com.ruoyi.system.mapper;
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ruoyi.system.domain.SysConfig;
 import org.apache.ibatis.annotations.Param;
 import com.ruoyi.common.core.domain.entity.SysUser;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * 用户表 数据层
@@ -14,6 +17,9 @@ import com.ruoyi.common.core.domain.entity.SysUser;
  */
 public interface SysUserMapper extends BaseMapper<SysUser>
 {
+    @Select("select u.user_id, u.dept_id, u.nick_name, u.user_name, u.email, u.avatar, u.phonenumber, u.sex, u.status, u.del_flag, u.login_ip, u.login_date, u.create_by, u.create_time, u.remark, d.dept_name, d.leader from sys_user u left join sys_dept d on u.dept_id = d.dept_id where u.del_flag = '0'")
+    IPage<SysUser> selectPageVo(Page<?> page);
+
     /**
      * 根据条件分页查询用户列表
      * 

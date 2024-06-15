@@ -2,6 +2,7 @@ package com.ruoyi.system.service;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.ruoyi.common.core.domain.entity.SysMenu;
 import com.ruoyi.common.core.domain.entity.SysUser;
@@ -13,6 +14,14 @@ import com.ruoyi.common.core.domain.entity.SysUser;
  */
 public interface ISysUserService extends IService<SysUser>
 {
+
+    /**
+     * 根据条件分页查询用户列表
+     * @param user
+     * @return
+     */
+    IPage selectPageVo(SysUser user);
+
     /**
      * 根据条件分页查询用户列表
      * 

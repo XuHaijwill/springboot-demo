@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Validator;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ruoyi.common.core.domain.entity.SysDictData;
 import com.ruoyi.system.mapper.*;
@@ -63,6 +65,20 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>  imp
 
     @Autowired
     protected Validator validator;
+
+    /**
+     * 根据条件分页查询用户列表
+     * @param user
+     * @return
+     */
+    @Override
+    @DataScope(deptAlias = "d", userAlias = "u")
+    public IPage selectPageVo(SysUser user)
+    {
+        Page<SysUser> page = new Page<>(1, 5); // 第1页，每页5条数据
+        IPage<SysUser> userIPage = userMapper.selectPageVo(page);
+        return userIPage;
+    }
 
     /**
      * 根据条件分页查询用户列表
