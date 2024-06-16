@@ -21,7 +21,7 @@ public interface ISysUserService extends IService<SysUser> {
      * @param user
      * @return
      */
-    IPage selectPageVo(SysUser user, Page page);
+    IPage selectPageVo(SysUser user, IPage page);
 
     /**
      * 根据条件分页查询用户列表

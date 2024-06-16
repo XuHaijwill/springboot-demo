@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @AllArgsConstructor
-public class UserController {
+public class SysUserController {
 
     private ISysUserService userService;
 
@@ -21,9 +21,10 @@ public class UserController {
     @RequestMapping(value = "/selectPage",method = RequestMethod.GET)
     public IPage<SysUser> selectPage(SysUser sysUser){
         log.info("selectPage start");
-        userService.selectPageVo(sysUser, new Page<>(1, 10));
+        IPage<SysUser> page = new Page<>(1,3);
+        userService.selectPageVo(sysUser, page);
         log.info("selectPage end");
-        return null;
+        return page;
     }
 
     @RequestMapping("hello")

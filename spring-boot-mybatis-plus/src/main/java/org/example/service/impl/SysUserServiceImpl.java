@@ -23,7 +23,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>  imp
     private SysUserMapper sysUserMapper;
 
     @Override
-    public IPage selectPageVo(SysUser user, Page page) {
+    public IPage selectPageVo(SysUser user, IPage page) {
         sysUserMapper.selectPage(page, null);
         if(!page.getRecords().isEmpty()){
             page.getRecords().forEach(data->{
