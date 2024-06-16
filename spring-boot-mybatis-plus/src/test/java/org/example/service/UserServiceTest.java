@@ -8,12 +8,10 @@ import org.springframework.util.Assert;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class UserServiceTest extends DemoSpringBootMyBatisPlusApplicationTests {
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @Test
     void queryAll() {

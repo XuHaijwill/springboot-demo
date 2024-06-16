@@ -1,13 +1,15 @@
 package org.example.controller;
 
-import org.example.service.UserService;
+import lombok.AllArgsConstructor;
+import org.example.service.IUserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@AllArgsConstructor
 public class UserController {
 
-    private UserService userService;
+    private IUserService userService;
 
     @RequestMapping("hello")
     public String hello(){
