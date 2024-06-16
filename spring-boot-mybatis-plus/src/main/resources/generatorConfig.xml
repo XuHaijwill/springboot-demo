@@ -25,18 +25,18 @@
         </javaTypeResolver>
         <!-- 生成模型的包名和位置 -->
         <!--自动生成的实体的存放包路径 -->
-        <javaModelGenerator targetPackage="org.example.domain.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="org.example.domain.entity" targetProject="D:\\generator\\src\\main\\java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
         <!-- 生成的映射文件包名和位置 -->
         <!--自动生成的*Mapper.xml文件存放路径 -->
-        <sqlMapGenerator targetPackage="org.example.mapper_test" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="org.example.mapper_test" targetProject="D:\\generator\\src\\main\\resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置 -->
         <!--自动生成的*Mapper.java存放路径 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="org.example.mapper" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.example.mapper" targetProject="D:\\generator\\src\\main\\java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
         <!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
