@@ -10,9 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("org.example.mapper")
-public class DemoSpringBootMyBatisPlusApplication
+public class SpringbootMybatisPlusApplication
 {
     public static void main(String[] args) {
-        SpringApplication.run(DemoSpringBootMyBatisPlusApplication.class, args);
+        SpringApplication.run(SpringbootMybatisPlusApplication.class, args);
     }
 }

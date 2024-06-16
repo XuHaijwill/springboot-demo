@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.example.DemoSpringBootMyBatisPlusApplicationTests;
 
 import org.example.domain.entity.SysUser;
+import org.example.mapper.SysUserMapper;
 import org.example.service.ISysUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

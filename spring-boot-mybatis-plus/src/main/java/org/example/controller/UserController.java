@@ -21,9 +21,9 @@ public class UserController {
     @RequestMapping(value = "/selectPage",method = RequestMethod.GET)
     public IPage<SysUser> selectPage(SysUser sysUser){
         log.info("selectPage start");
-        IPage page = userService.selectPageVo(sysUser, new Page<>(1, 10));
+        userService.selectPageVo(sysUser, new Page<>(1, 10));
         log.info("selectPage end");
-        return page;
+        return null;
     }
 
     @RequestMapping("hello")

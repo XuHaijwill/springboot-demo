@@ -7,7 +7,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource # 使用druid数据源
     driverClassName: net.sourceforge.jtds.jdbc.Driver
-    url: jdbc:jtds:sybase://192.168.146.132:8000/testdb2;charset=cp936
+    url: jdbc:jtds:sybase://192.168.146.132:8000/testdb;charset=cp936
     username: sa
     password: myPassword
   jackson:
@@ -17,15 +17,9 @@ spring:
       write-dates-as-timestamps: false
 
 mybatis-plus:
+  #xml文件路径，多个路径有xml文件用逗号分隔
+  mapper-locations: classpath*:/mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: org.example.domain.entity
   configuration:
-    map-underscore-to-camel-case: true
-    auto-mapping-behavior: full
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath*:mapper/**/*Mapper.xml
-  global-config:
-    # 逻辑删除配置
-    db-config:
-      # 删除前
-      logic-not-delete-value: 1
-      # 删除后
-      logic-delete-value: 0
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #配置这个 会把输出执行的SQL
