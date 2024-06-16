@@ -21,5 +21,8 @@ mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
   #实体扫描，多个package用逗号或者分号分隔
   typeAliasesPackage: org.example.domain.entity
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #配置这个 会把输出执行的SQL
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #配置这个 会把输出执行的SQL
+
+logging:
+  config: classpath:logback.xml
