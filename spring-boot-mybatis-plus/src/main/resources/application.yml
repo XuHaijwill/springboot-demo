@@ -5,8 +5,9 @@ server:
 
 spring:
   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 使用druid数据源
     driverClassName: net.sourceforge.jtds.jdbc.Driver
-    url: dbc:jtds:sybase://192.168.146.132:8000/testdb2
+    url: jdbc:jtds:sybase://192.168.146.132:8000/testdb2;charset=cp936
     username: sa
     password: myPassword
   jackson:

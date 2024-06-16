@@ -1,6 +1,4 @@
-select * from t_user
-
-create table testdb.dbo.t_user_2
+create table t_user_2
 (
     id        bigint       not null
         constraint PK_T_USER_2_ID
@@ -21,9 +19,9 @@ create table testdb.dbo.t_user_2
     avatar varchar(255) NULL,
     locked_state tinyint NULL
 )
-go
+    go
 
-create table testdb.dbo.t_goods_2
+create table t_goods_2
 (
     id        bigint       not null
         constraint PK_T_GOODS_2_ID
@@ -41,10 +39,10 @@ create table testdb.dbo.t_goods_2
 
     price decimal(11,2) NULL
 )
-go
+    go
 
 
-create table testdb.dbo.t_role_2
+create table t_role_2
 (
     id        bigint       not null
         constraint PK_T_ROLE_2_ID
@@ -62,9 +60,9 @@ create table testdb.dbo.t_role_2
     role_code varchar(255) NULL,
     role_name varchar(255) NULL
 )
-go
+    go
 
-create table testdb.dbo.t_user_role_2
+create table t_user_role_2
 (
     id        bigint       not null
         constraint PK_T_USER_ROLE_2_ID
@@ -82,9 +80,9 @@ create table testdb.dbo.t_user_role_2
     user_id bigint NULL,
     role_id bigint NULL
 )
-go
+    go
 
-create table testdb.dbo.t_log_2
+create table t_log_2
 (
     id        bigint       not null
         constraint PK_T_LOG_2_ID
@@ -102,4 +100,4 @@ create table testdb.dbo.t_log_2
     data varchar(255) NULL,
     error varchar(255) NULL
 )
-go
+    go

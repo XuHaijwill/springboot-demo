@@ -18,6 +18,11 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
+    public boolean insertOrUpdate(UserEntity userEntity) {
+        return userMapper.insertOrUpdate(userEntity);
+    }
+
+    @Override
     public List<UserEntity> queryAll() {
         return userMapper.selectList(null);
     }

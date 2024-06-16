@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IUserService {
 
+    boolean insertOrUpdate(UserEntity userEntity);
+
     List<UserEntity> queryAll();
 
 }
