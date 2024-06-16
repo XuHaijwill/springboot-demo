@@ -1,9 +1,10 @@
 package org.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.example.entity.UserEntity;
+import org.example.domain.entity.SysUser;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserMapper extends BaseMapper<UserEntity> {
+public interface SysUserMapper extends BaseMapper<SysUser> {
+
 }
