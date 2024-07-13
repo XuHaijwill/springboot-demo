@@ -18,7 +18,7 @@ ALTER TABLE sys_user_1 ADD CONSTRAINT PK_USER_ID primary key(user_id)
 
 
 -- 增加测试数据
-    INSERT INTO sys_user_1 (user_id, name, age, email) VALUES (1, 'Jone', 18, 'test1@baomidou.com')
+INSERT INTO sys_user_1 (user_id, name, age, email) VALUES (1, 'Jone', 18, 'test1@baomidou.com')
 INSERT INTO sys_user_1 (user_id, name, age, email) VALUES (2, 'Jack', 20, 'test2@baomidou.com')
 INSERT INTO sys_user_1 (user_id, name, age, email) VALUES (3, 'Tom', 28, 'test3@baomidou.com')
 INSERT INTO sys_user_1 (user_id, name, age, email) VALUES (4, 'Sandy', 21, 'test4@baomidou.com')

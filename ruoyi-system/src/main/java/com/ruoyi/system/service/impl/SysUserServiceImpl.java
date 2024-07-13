@@ -76,7 +76,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser>  imp
     public IPage selectPageVo(SysUser user)
     {
         Page<SysUser> page = new Page<>(1, 5); // 第1页，每页5条数据
-        IPage<SysUser> userIPage = userMapper.selectPageVo(page);
+        IPage<SysUser> userIPage = userMapper.selectPage(page,null);
         return userIPage;
     }
 
